@@ -5,23 +5,22 @@ services:
     container_name: devbox
     build:
       context: .
-    networks:
-      - dev
     command: sleep infinity
     volumes:
-      - ".:/workspace"
+      - ".:/workspace:cached"
+    networks:
+      - dev
 
   db:
     image: mongo:latest
-    restart: unless-stopped
-    networks:
-      - dev
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: jimlahey
+      MONGO_INITDB_ROOT_PASSWORD: iamtheliquor
+      MONGO_INITDB_DATABASE: eqscan
     volumes:
       - mongodb-data:/data/db
-    environment:
-     MONGO_INITDB_ROOT_USERNAME: jimlahey
-     MONGO_INITDB_ROOT_PASSWORD: iamtheliquor
-     MONGO_INITDB_DATABASE: eqscan
+    networks:
+      - dev
 
 volumes:
   mongodb-data:
