@@ -11,7 +11,7 @@ const useStyles = makeStyles(() =>
     content: {
       minHeight: "50vh",
     },
-  })
+  }),
 );
 
 const Loading = () => {

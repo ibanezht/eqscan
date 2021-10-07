@@ -1,15 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./app";
-import Amplify from "aws-amplify";
-import awsExports from "./aws-exports";
 import getRootStore from "./store";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { Provider } from "react-redux";
 import theme from "./theme";
 import { ThemeProvider } from "@material-ui/styles";
-
-Amplify.configure(awsExports);
 
 export const store = getRootStore();
 
