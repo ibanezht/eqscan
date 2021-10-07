@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  app:
+    container_name: devbox
+    build:
+      context: .
+    networks:
+      - dev
+    command: sleep infinity
+    volumes:
+      - ".:/workspace"
+
+  db:
+    image: mongo:latest
+    restart: unless-stopped
+    networks:
+      - dev
+    volumes:
+      - mongodb-data:/data/db
+    environment:
+     MONGO_INITDB_ROOT_USERNAME: jimlahey
+     MONGO_INITDB_ROOT_PASSWORD: iamtheliquor
+     MONGO_INITDB_DATABASE: eqscan
+
+volumes:
+  mongodb-data:
+
+networks:
+  dev:
