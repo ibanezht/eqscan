@@ -1,0 +1,10 @@
+{
+    "private": true,
+    "name": "eqscan",
+    "workspaces": [
+      "src/web"
+    ],
+    "scripts": {
+      "web": "set BROWSER=none&&yarn workspace web start"
+    }
+  }
