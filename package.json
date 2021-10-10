@@ -2,9 +2,9 @@
   "private": true,
   "name": "eqscan",
   "workspaces": [
-    "src/web/ClientApp",
-    "src/graphql",
-    "src/models"
+    "src/front/web/ClientApp",
+    "src/front/graphql",
+    "src/front/models"
   ],
   "scripts": {
     "web": "set BROWSER=none&&yarn workspace web start"
