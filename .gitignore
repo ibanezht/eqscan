@@ -11,5 +11,7 @@ node_modules
 # config
 appsettings.*
 
+# build
 bin
 obj
+build

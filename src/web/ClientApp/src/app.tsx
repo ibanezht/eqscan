@@ -1,11 +1,11 @@
 import { createBrowserHistory } from "history";
-import React from "react";
+import React, { FC } from "react";
 import { Router } from "react-router";
 import Routes from "./routes";
 
 const history = createBrowserHistory();
 
-const App = () => {
+const App: FC = () => {
   return (
     <Router history={history}>
       <Routes />

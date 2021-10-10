@@ -1,10 +1,10 @@
 import { DashboardView } from "./components/views";
 import { Redirect, Route, Switch } from "react-router-dom";
-import React from "react";
+import React, { FC } from "react";
 import { UserLayout } from "./components/layout";
 import { Container } from "./components";
 
-const Routes = () => {
+const Routes: FC = () => {
   return (
     <Switch>
       <Redirect exact from="/" to="/dashboard" />

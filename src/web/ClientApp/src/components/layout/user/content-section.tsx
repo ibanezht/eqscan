@@ -16,22 +16,20 @@ export const WhiteCircularProgress = withStyles((theme) => ({
   },
 }))(CircularProgress);
 
-const useStyles = makeStyles((theme: Theme) => {
-  return {
-    drawerHeader: {
-      ...theme.mixins.toolbar,
-    },
-    content: {
-      flexGrow: 1,
-      padding: theme.spacing(3),
-    },
-    fab: {
-      position: "fixed",
-      bottom: theme.spacing(1),
-      right: theme.spacing(1),
-    },
-  };
-});
+const useStyles = makeStyles((theme: Theme) => ({
+  drawerHeader: {
+    ...theme.mixins.toolbar,
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+  },
+  fab: {
+    position: "fixed",
+    bottom: theme.spacing(1),
+    right: theme.spacing(1),
+  },
+}));
 
 type Props = React.PropsWithChildren<unknown>;
 

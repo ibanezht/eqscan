@@ -1,20 +1,13 @@
-import {
-  CircularProgress,
-  createStyles,
-  Grid,
-  makeStyles,
-} from "@material-ui/core";
-import React from "react";
+import { CircularProgress, Grid, makeStyles } from "@material-ui/core";
+import React, { FC } from "react";
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    content: {
-      minHeight: "50vh",
-    },
-  }),
-);
+const useStyles = makeStyles(() => ({
+  content: {
+    minHeight: "50vh",
+  },
+}));
 
-const Loading = () => {
+const Loading: FC = () => {
   const classes = useStyles();
 
   return (
