@@ -12,18 +12,19 @@ services:
       - dev
 
   db:
-    image: mongo:latest
+    image: mariadb:10.4
     environment:
-      MONGO_INITDB_ROOT_USERNAME: jimlahey
-      MONGO_INITDB_ROOT_PASSWORD: iamtheliquor
-      MONGO_INITDB_DATABASE: eqscan
+      MYSQL_ROOT_PASSWORD: iamtheliquor
+      MYSQL_DATABASE: eqscan
+      MYSQL_USER: jimlahey
+      MYSQL_PASSWORD: iamtheliquor
     volumes:
-      - mongodb-data:/data/db
+      - mariadb-data:/var/lib/mysql
     networks:
       - dev
 
 volumes:
-  mongodb-data:
+  mariadb-data:
 
 networks:
   dev:

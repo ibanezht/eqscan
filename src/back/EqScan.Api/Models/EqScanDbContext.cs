@@ -8,6 +8,9 @@ namespace EqScan.Api.Models
         public DbSet<Unit> Units { get; set; }
         public DbSet<Contact> Contacts { get; set; }
 
+        public EqScanDbContext(DbContextOptions<EqScanDbContext> options)
+            : base(options) { }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             #region seed db data
