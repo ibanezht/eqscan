@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace EqScan.Common
 {
     public class Contact
@@ -6,6 +8,6 @@ namespace EqScan.Common
         public string Name { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public Unit[] Units { get; set; }
+        public IEnumerable<Unit> Units { get; set; }
     }
 }
