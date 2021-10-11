@@ -1,8 +1,11 @@
+using EqScan.Common;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.OData;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OData.Edm;
+using Microsoft.OData.ModelBuilder;
 using Microsoft.OpenApi.Models;
 
 namespace EqScan.Api
@@ -11,7 +14,8 @@ namespace EqScan.Api
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            //services.AddDbContext<BookStoreContext>(opt => opt.UseInMemoryDatabase("BookLists"));
+            services.AddControllers().AddOData(opt => opt.AddRouteComponents("odata", GetEdmModel()));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "eqscan.api", Version = "v1" });
@@ -35,6 +39,13 @@ namespace EqScan.Api
             {
                 endpoints.MapControllers();
             });
+        }
+        
+        private static IEdmModel GetEdmModel()
+        {
+            var builder = new ODataConventionModelBuilder();
+            builder.EntitySet<Unit>("Units");
+            return builder.GetEdmModel();
         }
     }
 }
