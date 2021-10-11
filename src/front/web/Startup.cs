@@ -18,9 +18,10 @@ namespace web
 
         public void ConfigureServices(IServiceCollection services)
         {
-            // services.AddControllersWithViews();
-
-            services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/build"; });
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "ClientApp/build";
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -31,22 +32,12 @@ namespace web
             }
             else
             {
-                app.UseExceptionHandler("/Error");
                 app.UseHsts();
             }
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
-
-            app.UseRouting();
-
-            // app.UseEndpoints(endpoints =>
-            // {
-            //     endpoints.MapControllerRoute(
-            //         name: "default",
-            //         pattern: "{controller}/{action=Index}/{id?}");
-            // });
 
             app.UseSpa(spa =>
             {

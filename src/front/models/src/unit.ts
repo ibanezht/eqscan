@@ -1,23 +1,12 @@
-import UnitType from "./unitType";
-import Customer from "./customer";
+import UnitType from "./unit-type";
+import Contact from "./contact";
 
 class Unit {
-  id: string;
-  dataMatrixStringValue: string;
-  unitType: UnitType;
-  customer: Customer;
-
   constructor(
-    id: string,
-    dataMatrixStringValue: string,
-    unitType: UnitType,
-    customer: Customer,
-  ) {
-    this.id = id;
-    this.dataMatrixStringValue = dataMatrixStringValue;
-    this.unitType = unitType;
-    this.customer = customer;
-  }
+    public id: string,
+    public unitType: UnitType,
+    public contact: Contact,
+  ) {}
 }
 
 export default Unit;
