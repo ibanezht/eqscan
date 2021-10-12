@@ -12,6 +12,9 @@ node_modules
 appsettings.*
 
 # build
+build
+
+# vs
 bin
 obj
-build
+*.DotSettings.user

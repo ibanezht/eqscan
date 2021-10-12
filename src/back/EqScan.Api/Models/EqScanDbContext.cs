@@ -5,11 +5,11 @@ namespace EqScan.Api.Models
 {
     public class EqScanDbContext : DbContext
     {
-        public DbSet<Unit> Units { get; set; }
-        public DbSet<Contact> Contacts { get; set; }
-
         public EqScanDbContext(DbContextOptions<EqScanDbContext> options)
             : base(options) { }
+
+        public DbSet<Unit> Units { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -21,13 +21,13 @@ namespace EqScan.Api.Models
                 {
                     Id = "1",
                     UnitType = "Radio",
-                    ContactId = "1",
+                    ContactId = "1"
                 },
                 new Unit
                 {
                     Id = "2",
                     UnitType = "Radio",
-                    ContactId = "2",
+                    ContactId = "2"
                 }
             };
 
