@@ -7,9 +7,7 @@ import resolvers from "./resolvers";
 import schema from "./schema";
 
 const { PORT, API_URI } = getConfig();
-
 const app = express();
-
 const unitStore = new UnitStore({
   url: API_URI,
 });

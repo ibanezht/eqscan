@@ -1,25 +1,33 @@
-using System.Linq;
+using System.Threading.Tasks;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using EqScan.Api.Models;
-using EqScan.Common;
+using EqScan.Common.Dtos;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.OData.Query;
+using Microsoft.EntityFrameworkCore;
 
 namespace EqScan.Api.Controllers
 {
-    public class UnitsController : EqScanControllerBase<Unit>
+    [ApiController]
+    [Route("api/[controller]")]
+    public class UnitsController : ControllerBase
     {
         private readonly EqScanDbContext _db;
+        private readonly IMapper _mapper;
 
-        public UnitsController(EqScanDbContext context)
-            : base(context)
+        public UnitsController(EqScanDbContext context, IMapper mapper)
         {
             _db = context;
+            _mapper = mapper;
         }
 
-        [EnableQuery]
-        public IActionResult Get(string key)
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetAsync(string id)
         {
-            return Ok(_db.Units.FirstOrDefault(c => c.Id == key));
+            var unit = await _db.Units
+                .ProjectTo<UnitDto>(_mapper.ConfigurationProvider)
+                .FirstOrDefaultAsync(c => c.Id == id);
+            return Ok(unit);
         }
     }
 }

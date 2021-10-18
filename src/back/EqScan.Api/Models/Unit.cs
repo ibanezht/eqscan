@@ -1,4 +1,4 @@
-namespace EqScan.Common
+namespace EqScan.Api.Models
 {
     public class Unit
     {

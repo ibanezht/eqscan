@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace EqScan.Common
+namespace EqScan.Api.Models
 {
     public class Contact
     {

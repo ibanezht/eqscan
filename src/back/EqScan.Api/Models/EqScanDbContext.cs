@@ -1,4 +1,3 @@
-using EqScan.Common;
 using Microsoft.EntityFrameworkCore;
 
 namespace EqScan.Api.Models
