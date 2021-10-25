@@ -1,1 +1,1 @@
-export {loadState, persistLocalStorage} from "./persist-local-storage";
+export { loadState, persistLocalStorage } from "./persist-local-storage";

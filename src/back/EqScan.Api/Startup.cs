@@ -26,15 +26,16 @@ namespace EqScan.Api
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
-            
+            if (env.IsDevelopment()) 
+                app.UseDeveloperExceptionPage();
+
             app.UseRouting();
             app.UseEndpoints(builder => { builder.MapControllers(); });
-            
+
             app.UseSwagger();
             app.UseSwaggerUI(options => options.SwaggerEndpoint("/swagger/v1/swagger.json", "eqscan.api v1"));
         }
-        
+
         private static string GetConnectionString()
         {
             var builder = new SqlConnectionStringBuilder
@@ -44,7 +45,8 @@ namespace EqScan.Api
                 DataSource = ".",
                 InitialCatalog = "eqscan"
             };
-            return builder.ToString();
+            var retval = builder.ToString();
+            return retval;
         }
     }
 }

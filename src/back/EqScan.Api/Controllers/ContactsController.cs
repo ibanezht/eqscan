@@ -1,10 +1,9 @@
-using System.Threading.Tasks;
+using System.Linq;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using EqScan.Api.Models;
 using EqScan.Common.Dtos;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace EqScan.Api.Controllers
 {
@@ -22,12 +21,16 @@ namespace EqScan.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetAsync(string id)
+        public IActionResult Get(string id)
         {
-            var contact = await _db.Contacts
+            var retval = _db.Contacts
                 .ProjectTo<ContactDto>(_mapper.ConfigurationProvider)
-                .FirstOrDefaultAsync(c => c.Id == id);
-            return Ok(contact);
+                .SingleOrDefault(u => u.Id == id);
+
+            if (retval == null)
+                return NotFound();
+
+            return Ok(retval);
         }
     }
 }

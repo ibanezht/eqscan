@@ -7,7 +7,8 @@
     "src/front/models"
   ],
   "scripts": {
-    "web": "set BROWSER=none&&yarn workspace web start",
+    "web-start": "set BROWSER=none&&yarn workspace web start",
+    "graphql-start": "yarn workspace graphql start",
     "models-build": "yarn workspace models build"
   }
 }

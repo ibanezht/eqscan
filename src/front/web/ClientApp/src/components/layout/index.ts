@@ -1,1 +1,1 @@
-export {UserLayout} from "./user";
+export { UserLayout } from "./user";
