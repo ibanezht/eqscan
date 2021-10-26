@@ -1,21 +1,14 @@
-import React from "react";
+import React, { FC } from "react";
+import { useDispatch } from "react-redux";
 
 interface Props {
   layout: React.ElementType;
   page: React.ElementType;
 }
 
-const Container = (props: Props) => {
-  // const username = useSelector(
-  //   (state: SystemState) => state.system.username,
-  //   shallowEqual,
-  // );
-  // const dispatch = useDispatch();
-  // const { layout: Layout, page: Page } = props;
-  //
-  // Auth.currentAuthenticatedUser().then(data =>
-  //   // dispatch(loggedIn({ isLoggedIn: true, username: data.getUsername() })),
-  // );
+const Container: FC<Props> = (props: Props) => {
+  const dispatch = useDispatch();
+  const { layout: Layout, page: Page } = props;
 
   return (
     // <Connect
