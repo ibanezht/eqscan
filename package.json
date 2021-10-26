@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "name": "eqscan",
+  "workspaces": [
+    "src/front/web/ClientApp",
+    "src/front/graphql",
+    "src/front/models"
+  ],
+  "scripts": {
+    "web-start": "set BROWSER=none&&yarn workspace web start",
+    "graphql-start": "yarn workspace graphql start",
+    "models-build": "yarn workspace models build"
+  }
+}
