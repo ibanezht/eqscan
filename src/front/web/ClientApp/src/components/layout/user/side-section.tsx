@@ -7,7 +7,7 @@ import {
   makeStyles,
   Theme,
 } from "@material-ui/core";
-import { ListAlt } from "@material-ui/icons";
+import { Dashboard } from "@material-ui/icons";
 import React, { FC } from "react";
 import RouterListItem from "../router-list-item";
 
@@ -47,17 +47,17 @@ const SideSection: FC<Props> = (props: Props) => {
   const drawer = (
     <React.Fragment>
       <div className={classes.drawerHeader}>
-        <div className={classes.title}></div>
+        <div className={classes.title}>EqScan</div>
       </div>
       <Divider />
       <List>
-        <ListSubheader>Portal</ListSubheader>
+        <ListSubheader>Main</ListSubheader>
         <RouterListItem
-          to="/orders"
-          primary="Orders"
-          icon={<ListAlt />}
-          selected={selectedRoute.includes("/orders")}
-          onClick={() => onRouteSelected("/orders")}
+          to="/dashboard"
+          primary="dashboard"
+          icon={<Dashboard />}
+          selected={selectedRoute.includes("/dashboard")}
+          onClick={() => onRouteSelected("/dashboard")}
         />
       </List>
     </React.Fragment>
