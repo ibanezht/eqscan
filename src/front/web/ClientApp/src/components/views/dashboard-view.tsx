@@ -5,7 +5,7 @@ const DashboardView: FC = () => {
   return (
     <Grid container>
       <Grid item xs={12}>
-        <span>Hello, World!</span>
+        <span>Hello, Tom!</span>
       </Grid>
     </Grid>
   );
