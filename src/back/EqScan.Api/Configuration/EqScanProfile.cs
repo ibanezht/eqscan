@@ -9,20 +9,21 @@ namespace EqScan.Api.Configuration
         public EqScanProfile()
         {
             CreateMap<Unit, UnitDto>()
-                .ForMember(des => des.Contact, 
+                .ForMember(des => des.Contact,
                     opt =>
                     {
                         opt.MapFrom(src => src.Contact);
                         opt.ExplicitExpansion();
                     });
-            
+
             CreateMap<Contact, ContactDto>()
-                .ForMember(des => des.Units, 
+                .ForMember(des => des.Units,
                     opt =>
                     {
                         opt.MapFrom(src => src.Units);
                         opt.ExplicitExpansion();
-                    });;
+                    });
+            ;
         }
     }
 }

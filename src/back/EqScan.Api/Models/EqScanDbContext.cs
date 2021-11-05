@@ -5,7 +5,9 @@ namespace EqScan.Api.Models
     public class EqScanDbContext : DbContext
     {
         public EqScanDbContext(DbContextOptions<EqScanDbContext> options)
-            : base(options) { }
+            : base(options)
+        {
+        }
 
         public DbSet<Unit> Units { get; set; }
         public DbSet<Contact> Contacts { get; set; }

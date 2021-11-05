@@ -27,7 +27,7 @@ namespace EqScan.Api.Controllers
             var retval = _db.Units
                 .ProjectTo<UnitDto>(_mapper.ConfigurationProvider)
                 .SingleOrDefault(u => u.Id == id);
-            
+
             if (retval == null)
                 return NotFound();
 
@@ -43,7 +43,7 @@ namespace EqScan.Api.Controllers
                 .Select(u => u.Contact)
                 .ProjectTo<ContactDto>(_mapper.ConfigurationProvider)
                 .SingleOrDefault();
-            
+
             if (retval == null)
                 return NotFound();
 
